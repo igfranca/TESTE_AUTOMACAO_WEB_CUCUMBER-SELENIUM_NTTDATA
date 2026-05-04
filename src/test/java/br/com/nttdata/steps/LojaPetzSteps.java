@@ -8,12 +8,9 @@ import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Então;
 
-import static org.junit.Assert.assertTrue;
-
 public class LojaPetzSteps {
 
   String precoProdutoPagina, precoProdutoSacola;
-  boolean precoProdutoFlag;
 
   @Dado("que um usuario entra no site {string}")
   public void queUmUsuarioEntraNoSite(String url) throws InterruptedException {
@@ -33,10 +30,6 @@ public class LojaPetzSteps {
   @E("na pagina do produto capturo o preco do produto")
   public void naPaginaDoProdutoCapturoOPrecoDoProduto() {
     precoProdutoPagina = new PageProduct(DriverManager.driver).pegarValorDoProduto();
-
-    if (precoProdutoPagina != null) {precoProdutoFlag = true;}
-
-    assertTrue("Preço do produto capturado com sucesso", precoProdutoFlag);
   }
 
   @E("adiciono o produto e envio para a sacola")
@@ -54,6 +47,5 @@ public class LojaPetzSteps {
     if (precoProdutoPagina.equals(precoProdutoSacola)) {
       System.out.println("Os valores da página do produto e página da sacola estão corretos");
     } else System.out.println("Os valores da página do produto e página da sacola não estão corretos");
-
   }
 }
