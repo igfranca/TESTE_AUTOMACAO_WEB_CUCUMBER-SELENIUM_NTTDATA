@@ -14,7 +14,7 @@ public class PageProduct extends AttributesProduct {
     return driver.findElement(valorProdutoPaginaProduto).getText();
   }
 
-  public void adicionarProdutoEIrSacola(){
+  public void adicionarProdutoEIrParaASacola(){
     driver.findElement(adicionarProduto).click();
     driver.findElement(irSacola).click();
   }
