@@ -36,12 +36,12 @@ public class LojaPetzSteps {
   @E("na pagina do produto capturo o preco do produto")
   public void naPaginaDoProdutoCapturoOPrecoDoProduto() {
     precoProdutoPagina = new PageProduct(DriverManager.driver).pegarValorDoProduto();
+    Hooks.getCurrentTest().log(Status.PASS, "Captura o preco do produto: ", ScreenshotUtil.capture(DriverManager.getDriver()));
   }
 
   @E("adiciono o produto e envio para a sacola")
   public void adicionoOProdutoEEnvioParaASacola() {
     new PageProduct(DriverManager.driver).adicionarProdutoEIrParaASacola();
-    Hooks.getCurrentTest().log(Status.PASS, "Adiciona o produto e envia para a sacola: ", ScreenshotUtil.capture(DriverManager.getDriver()));
   }
 
   @Então("devera verificar se estao corretos os valores do produto")
@@ -55,5 +55,6 @@ public class LojaPetzSteps {
     if (precoProdutoPagina.equals(precoProdutoSacola)) {
       System.out.println("Os valores da página do produto e página da sacola estão corretos");
     } else System.out.println("Os valores da página do produto e página da sacola não estão corretos");
+    Hooks.getCurrentTest().log(Status.PASS, "Verifica se os valores estão corretos: ", ScreenshotUtil.capture(DriverManager.getDriver()));
   }
 }
