@@ -1,5 +1,6 @@
 package br.com.nttdata.pages;
 import br.com.nttdata.attributes.AttributesProduct;
+import br.com.nttdata.support.ActionEvidenceUtil;
 import org.openqa.selenium.WebDriver;
 
 public class PageProduct extends AttributesProduct {
@@ -11,11 +12,11 @@ public class PageProduct extends AttributesProduct {
   }
 
   public String pegarValorDoProduto() {
-    return driver.findElement(valorProdutoPaginaProduto).getText();
+    return ActionEvidenceUtil.getText(driver, valorProdutoPaginaProduto, "Ação: capturar preço na página do produto");
   }
 
   public void adicionarProdutoEIrParaASacola(){
-    driver.findElement(adicionarProduto).click();
-    driver.findElement(irSacola).click();
+    ActionEvidenceUtil.click(driver, adicionarProduto, "Clique: adicionar produto");
+    ActionEvidenceUtil.click(driver, irSacola, "Clique: ir para a sacola");
   }
 }

@@ -1,6 +1,7 @@
 package br.com.nttdata.pages;
 
 import br.com.nttdata.attributes.AttributesBag;
+import br.com.nttdata.support.ActionEvidenceUtil;
 import org.openqa.selenium.WebDriver;
 
 public class PageBag extends AttributesBag {
@@ -12,6 +13,6 @@ public class PageBag extends AttributesBag {
   }
 
   public String pegarValorDoProdutoNaSacola() {
-    return driver.findElement(valorProdutoPaginaSacola).getText();
+    return ActionEvidenceUtil.getText(driver, valorProdutoPaginaSacola, "Ação: capturar preço na página da sacola");
   }
 }
